@@ -1,0 +1,87 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- start banner Area -->
+<section class="banner-area relative" id="home">
+	<div class="overlay overlay-bg"></div>
+	<div class="container">
+		<div class="row fullscreen d-flex align-items-center justify-content-center">
+			<div class="banner-content col-lg-12">
+				<h1 class="text-white">
+					<span>Create Offer</span>
+				</h1>
+
+				<form method="POST" action="" class="serach-form-area">
+					{% csrf_token %} 
+					<div class="row justify-content-center form-wrap">
+						<div class="col-lg-4 form-cols">
+							<input type="text" class="form-control" name="position" placeholder="position">
+						</div>
+
+						<div class="col-lg-4 form-cols">
+							<input type="text" class="form-control" name="branch" placeholder="branch">
+						</div>
+					</div>  
+
+					<div class="row justify-content-center form-wrap">
+						<div class="col-lg-4 form-cols">
+							<input type="text" class="form-control" name="city" placeholder="city">
+						</div>
+					
+						<div class="col-lg-4 form-cols">
+							<input type="text" class="form-control" name="address" placeholder="address">
+						</div>
+
+						<div class="col-lg-4 form-cols">
+							<input type="text" class="form-control" name="working_mode" placeholder="working mode">
+						</div>
+					</div>
+
+					<div class="row justify-content-center form-wrap">
+						<div class="col-lg-4 form-cols">
+							<input type="number" class="form-control" name="min_salary" placeholder="min salary">
+						</div>
+
+						<div class="col-lg-4 form-cols">
+							<input type="number" class="form-control" name="max_salary" placeholder="max salary">
+						</div>
+					
+						<div class="col-lg-4 form-cols">
+							<input type="text" class="form-control" name="currency" placeholder="currency">
+						</div>
+					</div>
+					
+					<div class="row justify-content-center form-wrap">
+						<div class="col-lg-4 form-cols">
+							<input type="text" class="form-control" name="description" placeholder="description">
+						</div>
+
+						<div class="col-lg-4 form-cols">
+							<input type="text" class="form-control" name="requirements" placeholder="requirements">
+						</div>
+					
+						<div class="col-lg-4 form-cols">
+							<input type="text" class="form-control" name="overview" placeholder="overview">
+						</div>
+					</div>
+					
+					<div class="row justify-content-center form-wrap">
+						<div class="col-lg-2 form-cols">
+							<button type="submit" class="btn btn-info">
+								Create
+							</button>
+						</div>
+					</div>
+				
+
+				</form>	
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End banner Area -->
+
+{% endblock content %}

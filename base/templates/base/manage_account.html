@@ -1,0 +1,73 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- start banner Area -->
+<section class="banner-area relative" id="home">
+	<div class="overlay overlay-bg"></div>
+	<div class="container">
+		<div class="row fullscreen d-flex align-items-center justify-content-center">
+			<div class="banner-content col-lg-12">
+				<div class="row justify-content-center form-wrap">
+					<div class="col-lg-2 form-cols">
+						<a href="{% url 'my_offers' %}">
+							<div class="btn btn-info">
+								My job offers
+							</div>
+						</a>
+					</div>
+				</div>
+
+				<div class="row justify-content-center form-wrap">
+					<div class="col-lg-4 form-cols">
+						<span style="font-size: 20px; color: #fff;">{{request.user.username}}</span>
+					</div>
+				</div>
+
+				<form method="POST" action="" class="serach-form-area" enctype="multipart/form-data">
+					{% csrf_token %} 
+
+					<div class="row justify-content-center form-wrap">
+						<div class="col-lg-4 form-cols">
+							<span style="font-size: 12px; color: #fff;">Company Name:</span>
+							<input type="text" class="form-control" value="{{company_name}}" name="company_name" placeholder="company name">
+						</div>
+					</div>
+					
+					<div class="row justify-content-center form-wrap">
+						<div class="col-lg-4 form-cols">
+							<span style="font-size: 12px; color: #fff;">Description:</span>
+							<input type="text" class="form-control" value="{{description}}" name="description" placeholder="description">
+						</div>
+					</div>
+					
+					<div class="row justify-content-center form-wrap">
+						<div class="col-lg-4 form-cols">
+							{{form.avatar}}
+						</div>
+					</div>
+					
+					<div class="row justify-content-center form-wrap">
+						<div class="col-lg-2 form-cols">
+							<a href="{% url 'home' %}">
+								<div class="btn btn-info">
+									Back
+								</div>
+							</a>
+						</div>
+						<div class="col-lg-2 form-cols">
+							<button type="submit" class="btn btn-info">
+								Update
+							</button>
+						</div>
+					</div>
+				</form>	
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End banner Area -->
+
+{% endblock content %}

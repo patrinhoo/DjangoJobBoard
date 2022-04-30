@@ -1,0 +1,41 @@
+{% load static %}
+
+<header id="header" id="home">
+    <div class="container">
+        <div class="row align-items-center justify-content-between d-flex">
+            <div id="logo">
+                <a href="{% url 'home' %}"><img src="{% static 'img/logo.png' %}" alt="" title="" /></a>
+            </div>
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                <li class="menu-active"><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'jobs' %}">Job Offers</a></li>
+                <li><a href="{% url 'about-us' %}">About Us</a></li>
+                <!-- <li><a href="price.html">Price</a></li> -->
+                <!-- <li><a href="blog-home.html">Blog</a></li> -->
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+                <!-- <li class="menu-has-children"><a href="">Pages</a>
+                    <ul>
+                        <li><a href="elements.html">elements</a></li>
+                        <li><a href="search.html">search</a></li>
+                        <li><a href="single.html">single</a></li>
+                    </ul>
+                </li> -->
+                {% if request.user.is_authenticated %}
+                <li><a class="ticker-btn" href="{% url 'create_offer' %}">Create Offer</a></li>
+                <li><a class="ticker-btn" href="{% url 'logout' %}">Logout</a></li>
+                <li><a href="{% url 'manage_account' %}"><img style="height: 50px; width: 50px; border-radius: 50%; border: 2px solid #49e4fa; object-fit: cover;" src="{{request.user.avatar.url}}" alt=""></a></li>
+                {% else %}
+                <li><a class="ticker-btn" href="{% url 'register' %}">Signup</a></li>
+                <li><a class="ticker-btn" href="{% url 'login' %}">Login</a></li>
+                {% endif %}
+                </ul>
+            </nav><!-- #nav-menu-container -->
+        </div>
+        <!-- {% if request.user.is_authenticated %}
+        <div class="text-right link-nav ">
+            <a class="" href=""><img src="{{request.user.avatar.url}}" alt=""></a>
+        </div>
+        {% endif %} -->
+    </div>
+</header><!-- #header -->

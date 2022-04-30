@@ -1,0 +1,29 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- start banner Area -->
+<section class="banner-area relative" id="home">	
+	<div class="overlay overlay-bg"></div>
+	<div class="container">
+		<div class="row d-flex align-items-center justify-content-center">
+			<div class="about-content col-lg-12">
+				<h1 class="text-white">
+					About Us				
+				</h1>	
+				<p class="text-white link-nav"><a href="{% url 'home' %}">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="{% url 'about-us' %}"> About Us</a></p>
+			</div>											
+		</div>
+	</div>
+</section>
+<!-- End banner Area -->	
+
+{% include 'base/service_component.html' %}
+
+{% include 'base/feature_component.html' %}
+
+{% include 'base/testimonial_component.html' %}
+
+{% endblock content %}

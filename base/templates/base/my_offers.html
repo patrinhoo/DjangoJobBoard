@@ -1,0 +1,68 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<!-- start banner Area -->
+<section class="banner-area relative" id="home">	
+	<div class="overlay overlay-bg"></div>
+	<div class="container">
+		<div class="row d-flex align-items-center justify-content-center">
+			<div class="about-content col-lg-12">
+				<h1 class="text-white">
+					My Job offers
+				</h1>	
+				<p class="text-white link-nav"><a href="{% url 'home' %}">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="">My Job offers</a></p>
+			</div>											
+		</div>
+	</div>
+</section>
+<!-- End banner Area -->	
+
+<!-- Start post Area -->
+<section class="post-area section-gap">
+	<div class="container">
+		<div class="row justify-content-center d-flex">
+			<div class="col-lg-8 post-list">
+				{% for offer in job_offers %}
+				<div class="single-post d-flex flex-row">
+					<div class="thumb" style="margin-right: 20px;">
+						<img style="width: 150px; height: 150px; object-fit: cover;" src="{{offer.company.avatar.url}}" alt="">
+						<ul class="tags">
+							<li>
+								{{offer.branch}}
+							</li>
+						</ul>
+					</div>
+					<div class="details">
+						<div class="title d-flex flex-row justify-content-between">
+							<div class="titles">
+								<a href="{% url 'offer' offer.id %}"><h4>{{offer.position}}</h4></a>
+								<h6>Company: {{offer.company.company_name}}</h6>
+							</div>
+						</div>
+						<p>
+							Description: {{offer}}
+						</p>
+						<h5>Working mode: 
+							{% if offer.working_mode %}
+							{{offer.working_mode}}
+							{% else %}
+							Unknown
+							{% endif %}
+						</h5>
+						<p class="address"><span class="lnr lnr-map"></span> {{offer.address}}, {{offer.city}}</p>
+						<p class="address"><span class="lnr lnr-database"></span> {{offer.min_salary}} {{offer.currency}} - {{offer.max_salary}} {{offer.currency}}</p>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+
+		</div>
+	</div>	
+</section>
+<!-- End post Area -->	
+		
+{% endblock content %}

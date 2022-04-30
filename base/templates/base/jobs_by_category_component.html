@@ -1,0 +1,10 @@
+{% load static %}
+
+<div class="single-slidebar">
+    <h4>Jobs by Category</h4>
+    <ul class="cat-list">
+        {% for category in popular_categories %}
+        <li><a class="justify-content-between d-flex" href="{% url 'jobs' %}?c={{category.name|urlencode}}"><p>{{category}}</p><span>{{category.joboffer_set.all.count}}</span></a></li>
+        {% endfor %}
+    </ul>
+</div>

@@ -1,0 +1,66 @@
+{% load static %}
+
+<!-- Start feature-cat Area -->
+<section class="feature-cat-area pt-100" id="category">
+	<div class="container">
+		<div class="row d-flex justify-content-center">
+			<div class="menu-content pb-60 col-lg-10">
+				<div class="title text-center">
+					<h1 class="mb-10">Featured Job Categories</h1>
+					<p>Who are in extremely love with eco friendly system.</p>
+				</div>
+			</div>
+		</div>						
+		<div class="row">
+			<div class="col-lg-2 col-md-4 col-sm-6">
+				<div class="single-fcat">
+					<a href="{% url 'jobs' %}?c=it">
+						<img src="{% static 'img/o1.png' %}" alt="">
+					</a>
+					<p>IT</p>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-4 col-sm-6">
+				<div class="single-fcat">
+					<a href="{% url 'jobs' %}?c=industry">
+						<img src="{% static 'img/o7.png' %}" alt="">
+					</a>
+					<p>Industry</p>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-4 col-sm-6">
+				<div class="single-fcat">
+					<a href="{% url 'jobs' %}?c=architecture">
+						<img src="{% static 'img/o8.png' %}" alt="">
+					</a>
+					<p>Architecture</p>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-4 col-sm-6">
+				<div class="single-fcat">
+					<a href="{% url 'jobs' %}?c=media">
+						<img src="{% static 'img/o4.png' %}" alt="">
+					</a>
+					<p>Media</p>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-4 col-sm-6">
+				<div class="single-fcat">
+					<a href="{% url 'jobs' %}?c=medical">
+						<img src="{% static 'img/o5.png' %}" alt="">
+					</a>
+					<p>Medical</p>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-4 col-sm-6">
+				<div class="single-fcat">
+					<a href="{% url 'jobs' %}?c=goverment">
+						<img src="{% static 'img/o6.png' %}" alt="">
+					</a>
+					<p>Goverment</p>
+				</div>			
+			</div>																											
+		</div>
+	</div>	
+</section>
+<!-- End feature-cat Area -->

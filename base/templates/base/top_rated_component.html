@@ -1,0 +1,27 @@
+{% load static %}
+
+<div class="single-slidebar">
+    <h4>Top rated job posts</h4>
+    <div class="active-relatedjob-carusel">
+        {% for offer in popular_job_offers %}
+        <div class="single-rated">
+            <img style="width: 150px; height: 150px; object-fit: cover;" src="{{offer.company.avatar.url}}" alt="">
+            <a href="{% url 'offer' offer.id %}"><h4>{{offer.position}}</h4></a>
+            <h6>Company: {{offer.company.company_name}}</h6>
+            <p>
+                Description: {{offer.description}}
+            </p>
+            <h5>Working mode: 
+                {% if offer.working_mode %}
+                {{offer.working_mode}}
+                {% else %}
+                Unknown
+                {% endif %}
+            </h5>
+            <p class="address"><span class="lnr lnr-map"></span> {{offer.address}}, {{offer.city}}</p>
+            <p class="address"><span class="lnr lnr-database"></span> {{offer.min_salary}} {{offer.currency}} - {{offer.max_salary}} {{offer.currency}}</p>
+            <!-- <a href="#" class="btns text-uppercase">Apply job</a> -->
+        </div>		
+        {% endfor %}															
+    </div>
+</div>		

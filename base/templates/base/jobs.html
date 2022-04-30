@@ -1,0 +1,131 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<!-- start banner Area -->
+<section class="banner-area relative" id="home">	
+	<div class="overlay overlay-bg"></div>
+	<div class="container">
+		<div class="row d-flex align-items-center justify-content-center">
+			<div class="about-content col-lg-12">
+				<h1 class="text-white">
+					Job offers
+				</h1>	
+				<p class="text-white link-nav"><a href="{% url 'home' %}">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="{% url 'jobs' %}"> Job offers</a></p>
+			</div>
+			<div class="align-items-center justify-content-center">
+				<div class="banner-content col-lg-12">
+					<form method="POST" action="" class="serach-form-area">
+						{% csrf_token %}
+						<div class="row justify-content-center form-wrap">
+							<div class="col-lg-3 form-cols">
+								<input type="text" class="form-control" name="search" placeholder="what are you looging for?">
+							</div>
+							<div class="col-lg-2 form-cols">
+								<div class="default-select" id="default-selects">
+									<select name="branch">
+										<option value="">Select area</option>
+										{% for category in categories %}
+										<option value="{{category}}">{{category}}</option>
+										{% endfor %}
+									</select>
+								</div>
+							</div>
+							<div class="col-lg-2 form-cols">
+								<div class="default-select" id="default-selects2">
+									<select name="location">
+										<option value="">All Locations</option>
+										{% for location in locations %}
+										<option value="{{location}}">{{location}}</option>
+										{% endfor %}
+									</select>
+								</div>										
+							</div>
+							<div class="col-lg-3 form-cols">
+								<div class="default-select" id="default-selects3">
+									<select name="working_mode">
+										<option value="">Working mode</option>
+										<option value="on-site">On-site</option>
+										<option value="remote">Remote</option>
+										<option value="hybrid">Hybrid</option>
+									</select>
+								</div>										
+							</div>
+							<div class="col-lg-2 form-cols">
+								<button type="submit" class="btn btn-info">
+									<span class="lnr lnr-magnifier"></span> Search
+								</button>
+							</div>								
+						</div>
+					</form>	
+					<p class="text-white"> <span>Search by job position:</span> Developer, Constructor, Manager, Teacher</p>
+				</div>											
+			</div>										
+		</div>
+	</div>
+</section>
+<!-- End banner Area -->	
+
+<!-- Start post Area -->
+<section class="post-area section-gap">
+	<div class="container">
+		<div class="row justify-content-center d-flex">
+			<div class="col-lg-8 post-list">
+				{% if job_offers %}
+					{% for offer in job_offers %}
+					<div class="single-post d-flex flex-row">
+						<div class="thumb" style="margin-right: 20px;">
+							<img style="width: 150px; height: 150px; object-fit: cover;" src="{{offer.company.avatar.url}}" alt="">
+							<ul class="tags">
+								<li>
+									{{offer.branch}}
+								</li>
+							</ul>
+						</div>
+						<div class="details">
+							<div class="title d-flex flex-row justify-content-between">
+								<div class="titles">
+									<a href="{% url 'offer' offer.id %}"><h4>{{offer.position}}</h4></a>
+									<h6>Company: {{offer.company.company_name}}</h6>					
+								</div>
+								<!-- <ul class="btns">
+									<li><a href=""><span class="lnr lnr-heart"></span></a></li>
+								</ul> -->
+							</div>
+							<p>
+								Description: {{offer}}
+							</p>
+							<h5>Working mode: 
+								{% if offer.working_mode %}
+								{{offer.working_mode}}
+								{% else %}
+								Unknown
+								{% endif %}
+							</h5>
+							<p class="address"><span class="lnr lnr-map"></span> {{offer.address}}, {{offer.city}}</p>
+							<p class="address"><span class="lnr lnr-database"></span> {{offer.min_salary}} {{offer.currency}} - {{offer.max_salary}} {{offer.currency}}</p>
+						</div>
+					</div>
+					{% endfor %}
+				{% else %}
+					<b style="font-size: 24px; color: black;">0 offers found</b>
+				{% endif %}
+			</div>
+			<div class="col-lg-4 sidebar">
+
+				{% include 'base/jobs_by_location_component.html' %}
+
+				{% include 'base/jobs_by_category_component.html' %}
+
+				{% include 'base/top_rated_component.html' %}
+		
+			</div>
+		</div>
+	</div>	
+</section>
+<!-- End post Area -->	
+		
+{% endblock content %}

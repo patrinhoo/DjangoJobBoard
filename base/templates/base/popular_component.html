@@ -1,0 +1,27 @@
+{% load static %}
+
+<!-- Start popular-post Area -->
+<section class="popular-post-area pt-100">
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="active-popular-post-carusel">
+
+				{% for offer in popular_job_offers %}
+				<div class="single-popular-post d-flex flex-row">
+					<div class="thumb">
+						<img style="height: 100px; width: 100px; object-fit: cover;" src="{{offer.company.avatar.url}}" alt="">
+					</div>
+					<div class="details">
+						<a href="{% url 'offer' offer.id %}"><h4>{{offer.position}}</h4></a>
+						<h6>City: {{offer.city}}</h6>
+						<p>
+							Description: {{offer.description}}
+						</p>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End popular-post Area -->
