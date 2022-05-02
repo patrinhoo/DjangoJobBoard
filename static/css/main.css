@@ -2098,6 +2098,14 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+.nav-img {
+  height: 50px; 
+  width: 50px; 
+  border-radius: 50%; 
+  border: 2px solid #49e4fa; 
+  object-fit: cover;
+}
+
 /* Mobile Nav Styling */
 #mobile-nav {
   position: fixed;
@@ -3751,6 +3759,8 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .map-wrap {
   margin-bottom: 120px;
+  width:100%; 
+  height: 445px;
 }
 
 .contact-btns {
@@ -4038,6 +4048,18 @@ body.mobile-nav-active #mobile-nav-toggle {
                Start Blog Details  Page style
 ################
 */
+.offer-img{
+  width: 150px; 
+  height: 150px; 
+  object-fit: cover;
+}
+
+.popular-img{
+  width: 100px; 
+  height: 100px; 
+  object-fit: cover;
+}
+
 .nav-area {
   border-bottom: 1px solid #eee;
 }

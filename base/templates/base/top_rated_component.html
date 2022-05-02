@@ -5,7 +5,7 @@
     <div class="active-relatedjob-carusel">
         {% for offer in popular_job_offers %}
         <div class="single-rated">
-            <img style="width: 150px; height: 150px; object-fit: cover;" src="{{offer.company.avatar.url}}" alt="">
+            <img class="offer-img" src="{{offer.company.avatar.url}}" alt="">
             <a href="{% url 'offer' offer.id %}"><h4>{{offer.position}}</h4></a>
             <h6>Company: {{offer.company.company_name}}</h6>
             <p>
